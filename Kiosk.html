@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!-- This HTML template creates the web app that serves as a kiosk for patients in the ENDEAVR Booth.
+The webpage contains an image and a button that allows them to join the Meet call with a virtual assistant
+and prepare for their doctor's appointment. The webpage also contains a liability disclaimer. -->
+<html>
+  <head>
+    <base target="_top">
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 75vw;
+        height: 100vh;
+        margin: 0 auto;
+      }
+      div {
+        margin: 20px auto;
+        flex: 0 1 25%;
+      }
+      div * {
+        margin: 0 auto;
+      }
+      #startButton {
+        color: white;
+        background-color: #0291CC;
+        padding: 150px 75px;
+        font-size: 100px
+      }
+     </style>
+  </head>
+  <body>
+    <div>
+     <img src="https://i.postimg.cc/m2bXVsCY/ENDEAVR-main-logo.png" height="150px">
+    </div>
+
+    <div>
+      <button id="startButton" onclick="openMeeting()">
+        <b>START</b>
+      </button>
+    </div>
+
+    <div style="text-align:justify">
+BY PRESSING THIS BUTTON, I HEREBY ASSUME ANY/ALL OF THE RISKS ASSOCIATED WITH services and study instruments received from the ENDEAVRide van and ENDEAVR telemedicine booth, including by way of example and not limitation, any risk that may arise from the negligence or carelessness on the part of the persons or entities being released, from dangerous or defective equipment or property owned, maintained, or controlled by them, or because of their possible liability without fault.
+I certify that I am sufficiently trained or prepared for participation in this activity and have not been advised to not participate by a qualified medical professional. I certify that there are no conditions which may preclude my participation in this activity/service.
+    </div>
+
+    <script>
+
+      function openMeeting() {
+        // on button press, send a text to all booth operators
+        // and get today's booth meeting URL using the getBoothMeetingUrl() function in Booth.gs
+        google.script.run.withSuccessHandler(onSuccess).withFailureHandler(onFailure).getBoothMeetingUrl();
+      }
+
+      function onSuccess(url) {
+        // opens Meet webpage once the url is returned successfully in openMeeting()
+        window.open(url)
+        google.script.run.sendTexts()
+      }
+
+      function onFailure(url) {
+        var div = document.getElementById('failureContent');
+        var link = '<a href="' + url + '" target="_self">Process</a>';
+        div.innerHtml = "Failure to open automatically: " + link;
+      }
+
+    </script>
+  </body>
+</html>
