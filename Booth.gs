@@ -169,16 +169,16 @@ function sendBoothMail(patientResponses) {
   var bccList = boothStaffGroup;
 
   GmailApp.sendEmail(doctor.email, "ENDEAVR Telemedicine Booth Appointment is Ready! (PHI Enclosed)",
-                    "Hello " + doctor.getName() + ",\n\n"
-                    + "An ENDEAVR patient (" + patientResponses[1].trim() + ") is waiting for your appointment to begin immediately. Please see the patient using the following link:\n\n"
-                    + meetingURL + "\n\n"
-                    + "Please visit the following link to access the patient’s intake form data including vital signs and symptom descriptions. Please make sure you are signed in to " + doctor.email + " in order to access it:\n\n"
-                    + doctor.destinationUrl + "\n\n"
-                    + "While you are seeing the patient, you can perform remote diagnostics using ENDEAVR devices such as the digital throatscope, otoscope, and stethoscope. These data can be accessed instantly during the session from the following link:\n\n"
-                    + doctor.rddUrl + "\n\n"
-                    + "Thanks,\nENDEAVRide\nSelf-Driving Service of, by, for the people\n\n",
-                    {htmlBody: htmlbody, inlineImages: {image: blob}, name:'ENDEAVR Institute', bcc:bccList}
-                   );
+    "Hello " + doctor.getName() + ",\n\n"
+    + "An ENDEAVR patient (" + patientResponses[1].trim() + ") is waiting for your appointment to begin immediately. Please see the patient using the following link:\n\n"
+    + meetingURL + "\n\n"
+    + "Please visit the following link to access the patient’s intake form data including vital signs and symptom descriptions. Please make sure you are signed in to " + doctor.email + " in order to access it:\n\n"
+    + doctor.destinationUrl + "\n\n"
+    + "While you are seeing the patient, you can perform remote diagnostics using ENDEAVR devices such as the digital throatscope, otoscope, and stethoscope. These data can be accessed instantly during the session from the following link:\n\n"
+    + doctor.rddUrl + "\n\n"
+    + "Thanks,\nENDEAVRide\nSelf-Driving Service of, by, for the people\n\n",
+    {htmlBody: htmlbody, inlineImages: {image: blob}, name:'ENDEAVR Institute', bcc:bccList}
+    );
   console.log("Booth appointment email sent to doctor");
 }
 
