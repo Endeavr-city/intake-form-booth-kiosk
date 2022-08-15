@@ -51,6 +51,18 @@ class EndeavrDoctor extends Doctor {
 // doctor is a global variable used to store the selected doctor
 // admin is used to store the admin for script testing
 
+// EXAMPLE DEFINITION
+/*
+const engineers = new EndeavrDoctor({
+  name: 'Software Engineer',
+  email: 'telemedicine-software@endeavr.city',
+  destinationUrl:'https://docs.google.com/spreadsheets/d/1AbRpmvtk4WeUxwo4-3IR0EHUKo4CHMNY8fLK7N-KGMk/edit?usp=sharing',
+  rddUrl:'https://drive.google.com/drive/folders/1kltR_6r3FZ_9cnBKlKMbwXCBdS8ePYXH?usp=sharing',
+  destinationId:'1AbRpmvtk4WeUxwo4-3IR0EHUKo4CHMNY8fLK7N-KGMk',
+  rddId:'1kltR_6r3FZ_9cnBKlKMbwXCBdS8ePYXH'
+});
+*/
+
 let endeavrEmail = 'ride@endeavr.city';
 let endeavrPatient = 'patient@endeavr.city';
 
